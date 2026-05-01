@@ -1,6 +1,6 @@
 # HelpDesk — React Router Challenge
 
-A pre-built support ticket dashboard with **no routing**. Your job is to wire it up.
+A pre-built support ticket dashboard with **no routing**. Your job is to wire it up. Bonus: You can add ticket filteringwith query params.
 
 ## Setup
 
