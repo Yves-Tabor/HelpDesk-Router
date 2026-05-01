@@ -1,5 +1,5 @@
 import { tickets } from "../data";
-import { Link, useParams } from "react-router-dom";
+import { Link, NavLink, Outlet, useParams } from "react-router-dom";
 
 function TicketDetail() {
   // trainees: get the ticket id from the URL instead of hardcoding it
@@ -31,11 +31,11 @@ function TicketDetail() {
       </div>
 
       <div className="detail-tabs">
-        <div className="detail-tab active">Details</div>
-        <div className="detail-tab">Activity</div>
+        {/* <div className="detail-tab active">Details</div>
+        <div className="detail-tab">Activity</div> */}
         {/* trainees: convert these to proper navigation with active styling */}
-        <Link to='details' className="detail-tab active">Details</Link>
-        <Link to='activity' className="detail-tab">Activity</Link>
+        <NavLink to='info' className={`detail-tab ${({isActive}) => isActive ? ' active' : ''}`}  end>Details</NavLink>
+        <NavLink to='activity' className={`detail-tab ${({isActive}) => isActive ? ' active' : ''}`} end>Activity</NavLink>
       </div>
 
       <div className="detail-tab-content">

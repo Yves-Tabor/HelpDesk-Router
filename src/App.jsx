@@ -15,15 +15,15 @@ function App() {
   return (
    <Routes>
     <Route path="/" element={<RootLayout/>}>
-      <Route path="/" element={<DashboardHome/>}/>
-      <Route path="/tickets-list" element={<TicketsLayout/>}>
+      <Route index element={<DashboardHome/>}/>
+      <Route path="tickets" element={<TicketsLayout/>}>
         <Route path="" element={<TicketsList/>}/>
         <Route path=":id" element={<TicketDetail/>}>
-          <Route path="details" element={<TicketDetailInfo/>}/>
+          <Route path="info" element={<TicketDetailInfo/>}/>
           <Route path="activity" element={<TicketActivity/>}/>
         </Route>
       </Route>
-      <Route path="/settings" element={<SettingsLayout/>}>
+      <Route path="settings" element={<SettingsLayout/>}>
         <Route index element={<ProfileSettings/>}/>
         <Route path="notifications" element={<NotificationSettings/>}/>
       </Route>
