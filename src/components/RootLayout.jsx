@@ -25,7 +25,7 @@ function RootLayout({ children }) {
             Settings
           </a> */}
           <NavLink to="/" className="nav-item"><span className="nav-icon">▦</span>Dashboard</NavLink>
-          <NavLink to="/tickets-list" className="nav-item"><span className="nav-icon">🎫</span>Tickets</NavLink>
+          <NavLink to="/tickets" className="nav-item"><span className="nav-icon">🎫</span>Tickets</NavLink>
           <NavLink to="/settings" className="nav-item"><span className="nav-icon">⚙</span>Settings</NavLink>
         </nav>
 

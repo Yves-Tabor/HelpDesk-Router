@@ -1,10 +1,14 @@
 import { tickets } from "../data";
-import { Link, useParams } from "react-router-dom";
+import { Link, NavLink, Outlet, useLocation, useParams } from "react-router-dom";
 
 function TicketDetail() {
   // trainees: get the ticket id from the URL instead of hardcoding it
   const { id } = useParams();
+  const location = useLocation();
   const ticket = tickets.find((t) => t.id === id);
+  const search = location.state?.search || '';
+  const status = location.state?.status || '';
+  const priority = location.state?.priority || '';
 
   if (!ticket) {
     return <div className="not-found-message">Ticket not found.</div>;
@@ -14,7 +18,7 @@ function TicketDetail() {
     <div className="ticket-detail">
       <div className="ticket-detail-header">
         {/* trainees: add a back button that navigates to the tickets list */}
-        <Link to="/tickets" className="back-button">Back to Ticket List</Link>
+        <Link to={`/tickets?search=${search}&status=${status}&priority=${priority}`} className="back-button">Back to {search || status || priority ? 'Filtered' : 'All'} Tickets</Link>
         <div>
           <h3>{ticket.subject}</h3>
           <div className="ticket-detail-meta">
@@ -31,11 +35,11 @@ function TicketDetail() {
       </div>
 
       <div className="detail-tabs">
-        <div className="detail-tab active">Details</div>
-        <div className="detail-tab">Activity</div>
+        {/* <div className="detail-tab active">Details</div>
+        <div className="detail-tab">Activity</div> */}
         {/* trainees: convert these to proper navigation with active styling */}
-        <Link to='details' className="detail-tab active">Details</Link>
-        <Link to='activity' className="detail-tab">Activity</Link>
+        <NavLink to='info' className={`detail-tab ${({isActive}) => isActive ? ' active' : ''}`}  end>Details</NavLink>
+        <NavLink to='activity' className={`detail-tab ${({isActive}) => isActive ? ' active' : ''}`} end>Activity</NavLink>
       </div>
 
       <div className="detail-tab-content">

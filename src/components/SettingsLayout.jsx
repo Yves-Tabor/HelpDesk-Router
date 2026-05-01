@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
 function SettingsLayout() {
   return (
@@ -13,8 +13,8 @@ function SettingsLayout() {
           {/*<div className="settings-tab active">Profile</div>
           <div className="settings-tab">Notifications</div>*/}
           {/* trainees: convert these to proper navigation with active styling */}
-          <Link className="settings-tab active" to=".">Profile</Link>
-          <Link className="settings-tab" to="notifications">Notifications</Link>
+          <NavLink className="settings-tab" to="." end>Profile</NavLink>
+          <NavLink className="settings-tab" to="notifications" end>Notifications</NavLink>
         </div>
 
         <div className="settings-content">
